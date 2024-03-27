@@ -1,0 +1,22 @@
+<template>
+    <label class="container-label">Bread Products</label>
+    <div class="gallery">
+        <template for:each={pictures} for:item="picture">
+            <div key={picture.id} class="pictureItem" data-id={picture.id} data-url={picture.url} data-description={picture.description} onclick={handlePictureClick}>
+                <img src={picture.url} alt={picture.description} />
+                <div class="description">{picture.description}</div>
+            </div>
+        </template>
+    </div>
+    
+    <div class="modal" if:true={selectedImageUrl}>
+        <lightning-modal-header label="Selected Image"></lightning-modal-header>
+        <lightning-modal-body>
+            <img src={selectedImageUrl} alt={selectedDescription} style="width: 100%;" />
+            <p>{selectedDescription}</p>
+        </lightning-modal-body>
+        <lightning-modal-footer>
+            <lightning-button label="OK" onclick={handleCloseInfo}></lightning-button>
+        </lightning-modal-footer>
+    </div>
+</template>
