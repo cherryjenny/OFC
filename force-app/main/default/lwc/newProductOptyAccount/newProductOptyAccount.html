@@ -1,0 +1,9 @@
+<template>
+    <lightning-card if:true={prodIds} title={cardTitle} icon-name="utility:list">
+        <lightning-datatable key-field="Id" data={rowData} columns={colData} ></lightning-datatable>
+        
+        <template lwc:if={errorMessage}>
+            <div class="slds-var-p-horizontal_small" style="color: red">{errorMessage}</div>
+        </template>  
+    </lightning-card>
+</template>

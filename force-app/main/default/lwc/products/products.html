@@ -1,0 +1,48 @@
+<template>
+    <div class = "container-label">
+        Bread Gallery
+    </div>
+    <div class="gallery">
+        <template for:each={products} for:item="product">
+            <div key={product.Id} class="pictureItem">
+                <img src={product.IMG_Document_Generation__c} alt="Product Image" class="product-image" 
+                     onclick={handleProductClick} 
+                     data-id={product.Id} 
+                     data-name={product.Name} 
+                     data-description={product.Description} 
+                     data-family={product.Family} 
+                     data-price={product.Standard_Price__c} 
+                     data-unit={product.Unit_of_Packed__c} 
+                     data-image={product.IMG_Document_Generation__c}/>
+
+                <div class="title">
+                    <span>{product.Name}</span>
+                </div>
+            </div>
+        </template>
+    </div>
+    
+    <div class="modal" if:true={selectedProductId}>
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Product Details</span>
+                <span class="close" onclick={handleCloseInfo}>×</span>
+            </div>
+
+            <div class="modal-body">
+                <img src={selectedProductImageURL} alt="Product Image" class="selected-product-image" />
+                <div class="description">
+                    <span><strong>이름 : </strong> {selectedProductName}</span><br/>
+                    <span><strong>상품 설명 : </strong> {selectedProductDescription}</span><br/>
+                    <span><strong>분류 : </strong> {selectedProductFamily}</span><br/>
+                    <span><strong>표준 가격 : </strong> {selectedProductPrice}</span><br/>
+                    <span><strong>단위 : </strong> {selectedProductUnit}</span><br/>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-close" onclick={handleCloseInfo}>Close</button>
+            </div>
+        </div>
+    </div>
+</template>

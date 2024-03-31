@@ -1,0 +1,34 @@
+.wrap{
+    width: 100%;
+    max-width: 800px;
+    min-height: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    position: relative;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+.basic-section{
+    display: flex;
+    gap: 6px;
+}
+.custom-section{
+    margin-top: 10px;
+}
+.wrap .sub-title{
+    font-size: 15px;
+    color: #636363;
+}
+.wrap .custom-btn{
+    background-color: #f0f2f5;
+    border: 1px solid #d1d7df;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #636363;
+    padding: 3px 8px;
+}
+.wrap .custom-btn:hover{
+    background-color: #797d83;
+    border-color: #797d83;
+    color: #ffffff;
+}

@@ -1,0 +1,117 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+}
+
+.pictureItem {
+    flex-basis: calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pictureItem img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.pictureItem img:hover {
+    transform: scale(1.05);
+}
+
+.container-label {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px; /* product와의 간격 설정 */
+    background-color: #fde2cf;
+    background-image: url('bread_pattern.png');
+    border: 2px solid #dd9d5e;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    color: #8b5a33;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    z-index: 9999;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
+.selected-product-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.btn-close {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    background-color: #0056b3;
+}

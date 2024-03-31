@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="utility:list">
+        <lightning-button slot="actions" label="Delete"
+            onclick={handleButtonClick} disabled={btnDeleteDisabled}
+            variant="destructive">
+        </lightning-button>
+        <lightning-datatable key-field="Id" data={rowData} columns={colData} onrowselection={handleRowSelection}></lightning-datatable>
+    </lightning-card>
+    
+    <!-- Display error message if any -->
+    <template lwc:if={errorMessage}>
+        <div class="slds-var-p-horizontal_small" style="color: red">
+            {errorMessage}
+        </div>
+    </template>
+</template>
