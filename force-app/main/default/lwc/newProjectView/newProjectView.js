@@ -1,5 +1,10 @@
-import { LightningElement,api } from 'lwc';
+import { LightningElement} from 'lwc';
+
 
 export default class NewProjectView extends LightningElement {
-    @api recordId;
+prodIds;
+
+handleSelectedprodIds(event){
+    this.prodIds = event.detail.prodIds;
+}
 }

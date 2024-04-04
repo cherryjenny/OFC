@@ -1,4 +1,18 @@
 <template>
-    <c-new-product record-id={recordId}></c-new-product>
-    <c-new-product-opty-account></c-new-product-opty-account>
+    <lightning-layout vertical-align="center" multiple-rows>
+
+        <lightning-layout-item padding="around-small" size="12">
+            <c-new-product onselectedprodids={handleSelectedprodIds}></c-new-product>
+        </lightning-layout-item>
+
+        <template lwc:if={prodIds}>
+            <div>개열받게하지말고 나와라</div>
+            <div>{prodIds}</div>
+            <lightning-layout-item padding="around-small" size="12">
+                <c-new-product-opty-account prod-ids={prodIds}></c-new-product-opty-account>    
+            </lightning-layout-item>
+        </template>
+
+
+    </lightning-layout>
 </template>

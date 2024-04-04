@@ -1,27 +1,11 @@
-public with sharing class newProductViewController {
-    
-    @AuraEnabled(Cacheable=true)
-    public static List<Product2> getNewProducts(){
-        List<Product2> prod = new List<Product2>();
-        try {
-            prod = [
-                SELECT Id, Name, Description, Family
-                FROM Product2
-                WHERE New_Product__c = TRUE
-            ];
-        } catch (Exception e) {
-            throw new AuraHandledException('Unable to retrieve NewProduct records ' + e.getMessage());
-        }
-        return prod;
-    }
-
-    @AuraEnabled(cacheable=true)
-    public static List<Account> getFilteredAccounts(List<Id> prodIds) {
+public class newProductFamilyAccount {
+    @InvocableMethod(label='newProductFamiyAccount')
+    public static List<Account> newProductFamilyAccount (List<Id> prodIds) {
         List<Account> accounts = new List<Account>();
         
         try {
             // 현재 사용자의 Id를 가져옵니다.
-            //Id userId = UserInfo.getUserId();
+            // Id userId = UserInfo.getUserId();
 
             //신제품의 family를 확인
             Set<String> familyValues = new Set<String>();
@@ -51,16 +35,4 @@ public with sharing class newProductViewController {
         return accounts;
     }
 
-    // public static List<String> getPicklistOptions() {
-    //     List<String> options = new List<String>();
-    //     Schema.DescribeFieldResult fieldResult = Product2.Family.getDescribe();
-    //     List<Schema.PicklistEntry> picklistValues = fieldResult.getPicklistValues();
-        
-    //     for(Schema.PicklistEntry entry : picklistValues) {
-    //         options.add(entry.getLabel());
-    //     }
-        
-    //     return options;
-    // }
-
-}
+    }
